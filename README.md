@@ -16,6 +16,20 @@ It was originally built for **IridiumSkyblock** islands, but it can also fall ba
 - Auto-removes registered selling chests when the container is broken or exploded
 - Optional IridiumSkyblock integration to restrict creation to island members and group chests per island
 
+## Screenshots
+
+### Trading chest overview
+
+![Trading chest overview](docs/screenshots/trading-chest-overview.jpg)
+
+### Owner setup menu
+
+![Trading chest setup menu](docs/screenshots/trading-chest-setup-menu.jpg)
+
+### Buyer purchase menu
+
+![Trading chest buyer menu](docs/screenshots/trading-chest-buy-menu.jpg)
+
 ## Requirements
 
 - Minecraft server software compatible with Bukkit/Paper/Purpur APIs
