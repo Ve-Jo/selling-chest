@@ -1,5 +1,5 @@
+import net.kyori.adventure.text.serializer.legacy.LegacyComponentSerializer;
 import net.milkbowl.vault.economy.Economy;
-import org.bukkit.ChatColor;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -10,6 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GuestBuyMenu extends SellingChestMenu {
+
+    private static final LegacyComponentSerializer AMPERSAND_SERIALIZER = LegacyComponentSerializer.legacyAmpersand();
+    private static final LegacyComponentSerializer SECTION_SERIALIZER = LegacyComponentSerializer.legacySection();
 
     private final SellingChest chest;
     private final Economy economy;
@@ -200,6 +203,6 @@ public class GuestBuyMenu extends SellingChestMenu {
             .replace("{item}", itemName)
             .replace("${price}", String.format("%.2f", totalPrice))
             .replace("${balance}", String.format("%.2f", economy.getBalance(player)));
-        return ChatColor.translateAlternateColorCodes('&', resolved);
+        return SECTION_SERIALIZER.serialize(AMPERSAND_SERIALIZER.deserialize(resolved));
     }
 }
