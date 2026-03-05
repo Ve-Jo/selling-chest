@@ -13,25 +13,26 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import net.kyori.adventure.text.serializer.legacy.LegacyComponentSerializer;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Consumer;
 
 public abstract class SellingChestMenu implements Listener {
+    private static final LegacyComponentSerializer LEGACY_SERIALIZER = LegacyComponentSerializer.legacySection();
 
     protected final JavaPlugin plugin;
     protected final Player player;
     protected final Inventory inventory;
     protected final Map<Integer, Consumer<InventoryClickEvent>> clickHandlers = new HashMap<>();
-    protected final String title;
     protected final int size;
 
     public SellingChestMenu(JavaPlugin plugin, Player player, String title, int size) {
         this.plugin = plugin;
         this.player = player;
-        this.title = title;
         this.size = size;
-        this.inventory = Bukkit.createInventory(null, size, title);
+        this.inventory = Bukkit.createInventory(null, size, LEGACY_SERIALIZER.deserialize(title));
     }
 
     public void open() {
@@ -62,9 +63,9 @@ public abstract class SellingChestMenu implements Listener {
         ItemStack item = new ItemStack(material);
         ItemMeta meta = item.getItemMeta();
         if (meta != null) {
-            meta.setDisplayName(name);
+            meta.displayName(LEGACY_SERIALIZER.deserialize(name));
             if (lore.length > 0) {
-                meta.setLore(java.util.Arrays.asList(lore));
+                meta.lore(java.util.Arrays.stream(lore).map(LEGACY_SERIALIZER::deserialize).toList());
             }
             item.setItemMeta(meta);
         }

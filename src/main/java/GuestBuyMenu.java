@@ -3,7 +3,6 @@ import org.bukkit.ChatColor;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
-import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -13,7 +12,6 @@ import java.util.List;
 public class GuestBuyMenu extends SellingChestMenu {
 
     private final SellingChest chest;
-    private final SellingChestManager manager;
     private final Economy economy;
 
     private static final int SLOT_ITEM_INFO = 13;
@@ -26,7 +24,6 @@ public class GuestBuyMenu extends SellingChestMenu {
     public GuestBuyMenu(JavaPlugin plugin, Player player, SellingChest chest, SellingChestManager manager, Economy economy) {
         super(plugin, player, "§6§lКупить предметы", 27);
         this.chest = chest;
-        this.manager = manager;
         this.economy = economy;
     }
 
