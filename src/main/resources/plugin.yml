@@ -1,0 +1,17 @@
+name: SellingChest
+version: '${version}'
+main: SellingChestPlugin
+api-version: '1.20'
+authors: [ayosynk]
+depend: [Vault, FancyHolograms]
+softdepend: [IridiumSkyblock]
+
+commands:
+  sellchest:
+    description: Get the selling chest wand
+    usage: /<command>
+
+permissions:
+  sellingchest.admin:
+    description: Allows creating and managing selling chests
+    default: op

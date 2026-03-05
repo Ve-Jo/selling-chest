@@ -1,0 +1,20 @@
+# Selling Chests Configuration
+selling-chests:
+  auction-menu:
+    enabled: true
+    title: '§6§lАукцион торговых сундуков'
+    size: 54
+  # Hologram settings
+  hologram-y-offset: 1.5
+  update-interval-seconds: 5
+  # Messages
+  messages:
+    purchase-success: '&aВы купили &f{item} &aза &f${price}&a!'
+    purchase-fail-no-money: '&cУ вас недостаточно средств. Цена: &f${price} &c| Ваш баланс: &f${balance}'
+    purchase-fail-no-stock: '&cЭтот сундук закончился.'
+    purchase-fail-full-inventory: '&cВаш инвентарь заполнен!'
+    owner-notification: '&e{buyer} &акупил &f{item} &aот вашего торгового сундука за &f${price}&a!'
+    chest-disabled: '&cЭтот сундук отключен.'
+    chest-created: '&aТорговый сундук создан! Используйте /sellchest для настройки.'
+    chest-removed: '&aТорговый сундук удален!'
+    no-permission: '&cУ вас нет разрешения на это.'
